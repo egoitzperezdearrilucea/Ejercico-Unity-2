@@ -6,6 +6,8 @@ using UnityEngine;
 public class MovimientoCursor : MonoBehaviour
 {
     
+    private int vidas = 3;
+    public Text TextoVidas;
     public Text texto;
     public GameObject cursor;
     
@@ -36,13 +38,19 @@ public class MovimientoCursor : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemigo")
-        {       
-            Time.timeScale = 0f;
-            texto.text = "Game over";
-            Debug.Log("Game over");
+        {
+            vidas--;
+            TextoVidas.text = "Vidas:" + vidas;
+
+            if (vidas <= 0)
+            {
+                Time.timeScale = 0f;
+                texto.text = "Game over";
+                Debug.Log("Game over");
             
-            //Set Cursor to be visible
-            Cursor.visible = true;
+                //Set Cursor to be visible
+                Cursor.visible = true;
+            }
         }
         else  if (collision.gameObject.tag == "PowerUp")
         {
