@@ -17,10 +17,13 @@ public class MovimientoCursor : MonoBehaviour
     //Game over cuando colisione
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Time.timeScale = 0f;
-    
-        texto.text = "Game over";
-        Debug.Log("Game over");
+        if (collision.gameObject.tag == "Enemigo")
+        {       
+            Time.timeScale = 0f;
+            texto.text = "Game over";
+            Debug.Log("Game over");
+        }
+
     }
 
     // Update is called once per frame
