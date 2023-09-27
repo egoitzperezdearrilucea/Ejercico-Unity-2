@@ -54,7 +54,17 @@ public class MovimientoCursor : MonoBehaviour
         }
         else  if (collision.gameObject.tag == "PowerUp")
         {
-            cursor.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            if (collision.gameObject.name == "Tamaño")
+            {
+                cursor.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            }
+            
+            if (collision.gameObject.name == ("Vida"))
+            {
+                vidas++;
+                TextoVidas.text = "Vidas:" + vidas;
+            }
+            
         }
     }
 }
