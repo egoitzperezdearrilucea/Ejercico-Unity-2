@@ -7,6 +7,7 @@ public class MovimientoCursor : MonoBehaviour
 {
     
     public Text texto;
+    public GameObject cursor;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,10 @@ public class MovimientoCursor : MonoBehaviour
             Time.timeScale = 0f;
             texto.text = "Game over";
             Debug.Log("Game over");
+        }
+        else  if (collision.gameObject.tag == "PowerUp")
+        {
+           cursor.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
 
     }
