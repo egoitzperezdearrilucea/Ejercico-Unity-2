@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemigo
   - PowerUp
+  - Vida
   layers:
   - Default
   - TransparentFX

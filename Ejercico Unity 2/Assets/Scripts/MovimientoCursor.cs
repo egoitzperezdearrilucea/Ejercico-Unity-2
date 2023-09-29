@@ -7,17 +7,17 @@ public class MovimientoCursor : MonoBehaviour
 {
     
     private int vidas = 3;
-    public Text TextoVidas;
+    public Text textoVidas;
     public Text texto;
     public GameObject cursor;
     
     // Start is called before the first frame update
     void Start()
     {
-        //Set Cursor to not be visible
+        //hace el cursor invisible
         Cursor.visible = false;
         
-        //confine the Cursor within the screen
+        //impide que el cursor salga de la pantalla
         Cursor.lockState = CursorLockMode.Confined;
     }
     
@@ -34,37 +34,43 @@ public class MovimientoCursor : MonoBehaviour
         
     }
     
-    //Game over cuando colisione
+    //Colisiones
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Colision con el enemigo
         if (collision.gameObject.tag == "Enemigo")
         {
+            //Restar vidas
             vidas--;
-            TextoVidas.text = "Vidas:" + vidas;
+            textoVidas.text = "Vidas:" + vidas;
 
+            //si las vidas llegan a cero game over
             if (vidas <= 0)
             {
                 Time.timeScale = 0f;
                 texto.text = "Game over";
                 Debug.Log("Game over");
             
-                //Set Cursor to be visible
+                //hace el cursor visible
                 Cursor.visible = true;
             }
         }
+        
+        //Colision con power ups
         else  if (collision.gameObject.tag == "PowerUp")
         {
+            //El power up de tamaño
             if (collision.gameObject.name == "Tamaño")
             {
                 cursor.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             }
-            
-            if (collision.gameObject.name == ("Vida"))
-            {
-                vidas++;
-                TextoVidas.text = "Vidas:" + vidas;
-            }
-            
+        }
+        
+        //Recoger vida
+        else if (collision.gameObject.tag == ("Vida"))
+        {
+            vidas++;
+            textoVidas.text = "Vidas:" + vidas;
         }
     }
 }
