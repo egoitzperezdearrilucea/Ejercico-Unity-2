@@ -10,6 +10,7 @@ public class MovimientoCursor : MonoBehaviour
     public Text textoVidas;
     public Text texto;
     public GameObject cursor;
+    private GameObject[] enemigos;
     
     // Start is called before the first frame update
     void Start()
@@ -57,15 +58,23 @@ public class MovimientoCursor : MonoBehaviour
         }
         
         //Colision con power ups
-        else  if (collision.gameObject.tag == "PowerUp")
+  
+        //El power up de tamaño
+        else if (collision.gameObject.tag == "TamañoJugador")
         {
-            //El power up de tamaño
-            if (collision.gameObject.name == "Tamaño")
-            {
-                cursor.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            }
+            cursor.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
         
+        //El power up de tamaño enemigo
+        else if (collision.gameObject.tag == "TamañoEnemigo")
+        {
+            enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+            foreach (var enemigo in enemigos)
+            {
+                enemigo.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            }
+        }
+
         //Recoger vida
         else if (collision.gameObject.tag == ("Vida"))
         {

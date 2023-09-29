@@ -234,6 +234,7 @@ MonoBehaviour:
   enemigo: {fileID: 6383657886679942835, guid: 1ff4c2cf468aa224cab8e1a03c626de7, type: 3}
   vida: {fileID: 2623541153170823844, guid: 7116a9d25dbfb9e4d9fb2189872e5f63, type: 3}
   "powerTama\xF1o": {fileID: 2477807097131300546, guid: 3e77b93b4397eb345bd5ac5cc79777fc, type: 3}
+  "powerTama\xF1oEnemigo": {fileID: 7802510860830827357, guid: 9b63c0f0bd86abd49a71342b40e3c965, type: 3}
   textoTiempo: {fileID: 599893431}
 --- !u!4 &175838818
 Transform:

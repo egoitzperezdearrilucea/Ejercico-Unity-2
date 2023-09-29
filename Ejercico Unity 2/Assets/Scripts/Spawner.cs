@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public GameObject enemigo;
     public GameObject vida;
     public GameObject powerTamaño;
+    public GameObject powerTamañoEnemigo;
     public Text textoTiempo;
     private float tiempo;
     
@@ -20,7 +21,8 @@ public class Spawner : MonoBehaviour
         
       //Spawns periodicos
         InvokeRepeating("SpawnEnemigos", 15.0f, 10.0f);
-        Invoke("SpawnPowerTamaño", 30f);
+        Invoke("SpawnPowerTamaño", 20f);
+        Invoke("SpawnPowerTamañoEnemigo", 40f);
         
         //Spawn Inicial
         Instantiate(vida, transform.position = new Vector3(0f,0f,0f), Quaternion.identity);
@@ -65,9 +67,13 @@ public class Spawner : MonoBehaviour
         Debug.Log("spawn power up tamaño");
             
         Instantiate(powerTamaño, transform.position = new Vector3(Random.Range(-10,10),Random.Range(-4,5),0), Quaternion.identity);
-
-        
+    }
+    
+    //Spawn de power up tamaño
+    private void SpawnPowerTamañoEnemigo()
+    {
+        Debug.Log("spawn power up tamaño enemigo");
             
-        
+        Instantiate(powerTamañoEnemigo, transform.position = new Vector3(Random.Range(-10,10),Random.Range(-4,5),0), Quaternion.identity);
     }
 }
