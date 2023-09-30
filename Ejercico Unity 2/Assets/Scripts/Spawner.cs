@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     public GameObject powerTamañoEnemigo;
     public Text textoTiempo;
     private float tiempo;
-    
+    public AudioSource sistemaAudio;    
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
         Invoke("SpawnPowerTamañoEnemigo", 40f);
         
         //Spawn Inicial
+        sistemaAudio.Play();
         Instantiate(vida, transform.position = new Vector3(0f,0f,0f), Quaternion.identity);
         
         Instantiate(enemigo, transform.position = new Vector3(-0.5f,-1f,0f), Quaternion.identity);
@@ -50,6 +51,7 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemigos()
     {
         Debug.Log("spawn enemigos");
+        sistemaAudio.Play();
             
         Instantiate(vida, transform.position = new Vector3(Random.Range(-10,10),Random.Range(-4,5),0), Quaternion.identity);
 
@@ -65,6 +67,7 @@ public class Spawner : MonoBehaviour
     private void SpawnPowerTamaño()
     {
         Debug.Log("spawn power up tamaño");
+        sistemaAudio.Play();
             
         Instantiate(powerTamaño, transform.position = new Vector3(Random.Range(-10,10),Random.Range(-4,5),0), Quaternion.identity);
     }
@@ -73,6 +76,7 @@ public class Spawner : MonoBehaviour
     private void SpawnPowerTamañoEnemigo()
     {
         Debug.Log("spawn power up tamaño enemigo");
+        sistemaAudio.Play();
             
         Instantiate(powerTamañoEnemigo, transform.position = new Vector3(Random.Range(-10,10),Random.Range(-4,5),0), Quaternion.identity);
     }

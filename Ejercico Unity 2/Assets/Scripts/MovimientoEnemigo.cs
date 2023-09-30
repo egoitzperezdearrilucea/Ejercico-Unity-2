@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class movimientoBola : MonoBehaviour
 {
-
+    public AudioSource sistemaAudio; 
     public GameObject bola;
     public float velocidad = 5f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,4 +21,10 @@ public class movimientoBola : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        sistemaAudio.Play();
+    }
+
 }

@@ -11,6 +11,7 @@ public class MovimientoCursor : MonoBehaviour
     public Text texto;
     public GameObject cursor;
     private GameObject[] enemigos;
+    public AudioSource sistemaAudio; 
     
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class MovimientoCursor : MonoBehaviour
             //si las vidas llegan a cero game over
             if (vidas <= 0)
             {
+                sistemaAudio.Play();
                 Time.timeScale = 0f;
                 texto.text = "Game over";
                 Debug.Log("Game over");
